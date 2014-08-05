@@ -1,0 +1,14 @@
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\WordGenPreviewTool.exe.config
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\WordGenPreviewTool.exe
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\WordGenPreviewTool.pdb
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.frmMain.resources
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.Properties.Resources.resources
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.default_values.resources
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.csproj.GenerateResource.Cache
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.exe
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.pdb
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\WordGenPreviewTool.exe.manifest
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\WordGenPreviewTool.application
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.csprojResolveAssemblyReference.cache
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.exe.manifest
+c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.application
