@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
       this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.btnAddCharSets = new System.Windows.Forms.Button();
+      this.btnAddChar = new System.Windows.Forms.Button();
       this.nudNWords = new System.Windows.Forms.NumericUpDown();
       this.label8 = new System.Windows.Forms.Label();
       this.cbxNoRepeating = new System.Windows.Forms.CheckBox();
@@ -46,9 +48,9 @@
       this.lstChars = new System.Windows.Forms.ListView();
       this.label4 = new System.Windows.Forms.Label();
       this.txtCharToAdd = new System.Windows.Forms.TextBox();
-      this.btnAddChar = new System.Windows.Forms.Button();
       this.label3 = new System.Windows.Forms.Label();
       this.groupBox3 = new System.Windows.Forms.GroupBox();
+      this.btnTypeNewWord = new System.Windows.Forms.Button();
       this.cbxBold = new System.Windows.Forms.CheckBox();
       this.label10 = new System.Windows.Forms.Label();
       this.cmxTypefaces = new System.Windows.Forms.ComboBox();
@@ -68,8 +70,6 @@
       this.label2 = new System.Windows.Forms.Label();
       this.lstGenerated = new System.Windows.Forms.ListView();
       this.label1 = new System.Windows.Forms.Label();
-      this.button1 = new System.Windows.Forms.Button();
-      this.button2 = new System.Windows.Forms.Button();
       this.groupBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudNWords)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudNChars)).BeginInit();
@@ -78,7 +78,7 @@
       // 
       // groupBox1
       // 
-      this.groupBox1.Controls.Add(this.button1);
+      this.groupBox1.Controls.Add(this.btnAddCharSets);
       this.groupBox1.Controls.Add(this.btnAddChar);
       this.groupBox1.Controls.Add(this.nudNWords);
       this.groupBox1.Controls.Add(this.label8);
@@ -104,6 +104,25 @@
       this.groupBox1.TabIndex = 8;
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "设定";
+      // 
+      // btnAddCharSets
+      // 
+      this.btnAddCharSets.Location = new System.Drawing.Point(14, 89);
+      this.btnAddCharSets.Name = "btnAddCharSets";
+      this.btnAddCharSets.Size = new System.Drawing.Size(267, 28);
+      this.btnAddCharSets.TabIndex = 20;
+      this.btnAddCharSets.Text = "加入预设字组...";
+      this.btnAddCharSets.UseVisualStyleBackColor = true;
+      // 
+      // btnAddChar
+      // 
+      this.btnAddChar.Location = new System.Drawing.Point(204, 56);
+      this.btnAddChar.Name = "btnAddChar";
+      this.btnAddChar.Size = new System.Drawing.Size(77, 30);
+      this.btnAddChar.TabIndex = 1;
+      this.btnAddChar.Text = "加入";
+      this.btnAddChar.UseVisualStyleBackColor = true;
+      this.btnAddChar.Click += new System.EventHandler(this.btnAddChar_Click);
       // 
       // nudNWords
       // 
@@ -269,16 +288,6 @@
       this.txtCharToAdd.TabIndex = 2;
       this.txtCharToAdd.Text = "甲乙丙丁";
       // 
-      // btnAddChar
-      // 
-      this.btnAddChar.Location = new System.Drawing.Point(204, 56);
-      this.btnAddChar.Name = "btnAddChar";
-      this.btnAddChar.Size = new System.Drawing.Size(77, 30);
-      this.btnAddChar.TabIndex = 1;
-      this.btnAddChar.Text = "加入";
-      this.btnAddChar.UseVisualStyleBackColor = true;
-      this.btnAddChar.Click += new System.EventHandler(this.btnAddChar_Click);
-      // 
       // label3
       // 
       this.label3.AutoSize = true;
@@ -290,7 +299,7 @@
       // 
       // groupBox3
       // 
-      this.groupBox3.Controls.Add(this.button2);
+      this.groupBox3.Controls.Add(this.btnTypeNewWord);
       this.groupBox3.Controls.Add(this.cbxBold);
       this.groupBox3.Controls.Add(this.label10);
       this.groupBox3.Controls.Add(this.cmxTypefaces);
@@ -316,6 +325,16 @@
       this.groupBox3.TabIndex = 10;
       this.groupBox3.TabStop = false;
       this.groupBox3.Text = "生成及预览";
+      // 
+      // btnTypeNewWord
+      // 
+      this.btnTypeNewWord.Location = new System.Drawing.Point(10, 543);
+      this.btnTypeNewWord.Name = "btnTypeNewWord";
+      this.btnTypeNewWord.Size = new System.Drawing.Size(106, 43);
+      this.btnTypeNewWord.TabIndex = 27;
+      this.btnTypeNewWord.Text = "输入新词";
+      this.btnTypeNewWord.UseVisualStyleBackColor = true;
+      this.btnTypeNewWord.Click += new System.EventHandler(this.btnTypeNewWord_Click);
       // 
       // cbxBold
       // 
@@ -508,24 +527,6 @@
       this.label1.TabIndex = 8;
       this.label1.Text = "备选词：";
       // 
-      // button1
-      // 
-      this.button1.Location = new System.Drawing.Point(14, 89);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(267, 28);
-      this.button1.TabIndex = 20;
-      this.button1.Text = "加入预设字组...";
-      this.button1.UseVisualStyleBackColor = true;
-      // 
-      // button2
-      // 
-      this.button2.Location = new System.Drawing.Point(10, 543);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(106, 43);
-      this.button2.TabIndex = 27;
-      this.button2.Text = "输入新词";
-      this.button2.UseVisualStyleBackColor = true;
-      // 
       // frmMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
@@ -537,7 +538,7 @@
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "frmMain";
-      this.Text = "随机造词及预览工具";
+      this.Text = "造词及预览工具";
       this.Load += new System.EventHandler(this.frmMain_Load);
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
@@ -591,8 +592,8 @@
         private System.Windows.Forms.CheckBox cbxUnderline;
         private System.Windows.Forms.CheckBox cbxItalic;
         private System.Windows.Forms.CheckBox cbxBold;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAddCharSets;
+        private System.Windows.Forms.Button btnTypeNewWord;
 
 
     }

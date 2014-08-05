@@ -12,3 +12,4 @@ c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPr
 c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.csprojResolveAssemblyReference.cache
 c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.exe.manifest
 c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.application
+C:\Users\Xiao\Documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.TextInputDialog.resources

@@ -195,5 +195,12 @@ namespace WordGenPreviewTool
       lbl18.Font = new Font(cmxTypefaces.SelectedItem.ToString(), 18);
       reflectFont();
     }
+
+    private void btnTypeNewWord_Click(object sender, EventArgs e)
+    {
+      string[] s = TextInputDialog.getInput(this, "输入候选词", "请在文本框中输入你想加入的候选词，用空格分开。").Split(' ');
+      foreach (string i in s)
+        lstSelected.Items.Add(i);
+    }
   }
 }
