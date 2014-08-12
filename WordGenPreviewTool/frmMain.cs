@@ -198,7 +198,9 @@ namespace WordGenPreviewTool
 
     private void btnTypeNewWord_Click(object sender, EventArgs e)
     {
-      string[] s = TextInputDialog.getInput(this, "输入候选词", "请在文本框中输入你想加入的候选词，用空格分开。").Split(' ');
+      string val = TextInputDialog.getInput(this, "输入候选词", "请在文本框中输入你想加入的候选词，用空格分开。");
+      if (val==null) return;
+      string[] s = val.Split(' ');
       foreach (string i in s)
         lstSelected.Items.Add(i);
     }
