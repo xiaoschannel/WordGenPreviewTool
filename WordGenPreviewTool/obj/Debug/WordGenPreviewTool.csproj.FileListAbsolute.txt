@@ -13,3 +13,6 @@ c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPr
 c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.exe.manifest
 c:\users\xiao\documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.application
 C:\Users\Xiao\Documents\visual studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.TextInputDialog.resources
+C:\Users\Xiao\Documents\Visual Studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\obj\Debug\WordGenPreviewTool.frmKeyword.resources
+C:\Users\Xiao\Documents\Visual Studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\CharKeywords.resx
+C:\Users\Xiao\Documents\Visual Studio 2013\Projects\WordGenPreviewTool\WordGenPreviewTool\bin\Debug\CharKeywords.Designer.cs

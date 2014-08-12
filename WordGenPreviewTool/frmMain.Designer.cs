@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
       this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.btnAddCharSets = new System.Windows.Forms.Button();
+      this.btnCharSets = new System.Windows.Forms.Button();
       this.btnAddChar = new System.Windows.Forms.Button();
       this.nudNWords = new System.Windows.Forms.NumericUpDown();
       this.label8 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@
       // 
       // groupBox1
       // 
-      this.groupBox1.Controls.Add(this.btnAddCharSets);
+      this.groupBox1.Controls.Add(this.btnCharSets);
       this.groupBox1.Controls.Add(this.btnAddChar);
       this.groupBox1.Controls.Add(this.nudNWords);
       this.groupBox1.Controls.Add(this.label8);
@@ -105,14 +105,15 @@
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "设定";
       // 
-      // btnAddCharSets
+      // btnCharSets
       // 
-      this.btnAddCharSets.Location = new System.Drawing.Point(14, 89);
-      this.btnAddCharSets.Name = "btnAddCharSets";
-      this.btnAddCharSets.Size = new System.Drawing.Size(267, 28);
-      this.btnAddCharSets.TabIndex = 20;
-      this.btnAddCharSets.Text = "加入预设字组...";
-      this.btnAddCharSets.UseVisualStyleBackColor = true;
+      this.btnCharSets.Location = new System.Drawing.Point(14, 89);
+      this.btnCharSets.Name = "btnCharSets";
+      this.btnCharSets.Size = new System.Drawing.Size(267, 28);
+      this.btnCharSets.TabIndex = 20;
+      this.btnCharSets.Text = "字组管理...";
+      this.btnCharSets.UseVisualStyleBackColor = true;
+      this.btnCharSets.Click += new System.EventHandler(this.btnCharSets_Click);
       // 
       // btnAddChar
       // 
@@ -592,7 +593,7 @@
         private System.Windows.Forms.CheckBox cbxUnderline;
         private System.Windows.Forms.CheckBox cbxItalic;
         private System.Windows.Forms.CheckBox cbxBold;
-        private System.Windows.Forms.Button btnAddCharSets;
+        private System.Windows.Forms.Button btnCharSets;
         private System.Windows.Forms.Button btnTypeNewWord;
 
 

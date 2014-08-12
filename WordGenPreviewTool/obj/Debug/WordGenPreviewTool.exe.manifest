@@ -42,17 +42,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WordGenPreviewTool.exe" size="26112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WordGenPreviewTool.exe" size="32256">
       <assemblyIdentity name="WordGenPreviewTool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p2LnHI7aLoWFbd+u+5BANiTZYsabassktmPfbUoXvw8=</dsig:DigestValue>
+        <dsig:DigestValue>mQMH6Z9Pgba5yOUk/lNG4bxmuprojmoSqPTOxg6Gs/4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="CharKeywords.resx" size="7214">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8fWw1U6XZ1lc5lm97h3oz0rOXVotQJlbo/8ad98rcOQ=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="WordGenPreviewTool.exe.config" size="187">
     <hash>
       <dsig:Transforms>

@@ -204,5 +204,10 @@ namespace WordGenPreviewTool
       foreach (string i in s)
         lstSelected.Items.Add(i);
     }
+
+    private void btnCharSets_Click(object sender, EventArgs e)
+    {
+      new frmKeyword().Show();
+    }
   }
 }

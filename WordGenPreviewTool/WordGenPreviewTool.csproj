@@ -72,6 +72,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharKeywords.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharKeywords.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="frmKeyword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKeyword.Designer.cs">
+      <DependentUpon>frmKeyword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,14 @@
       <DependentUpon>TextInputDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
+    <Content Include="CharKeywords.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CharKeywords.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="frmKeyword.resx">
+      <DependentUpon>frmKeyword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
