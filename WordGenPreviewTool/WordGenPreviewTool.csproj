@@ -72,6 +72,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CharKeyword.cs">
+      <DependentUpon>CharKeyword.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CharKeyword.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CharKeyword.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CharKeywords_Backup.Designer.cs">
+      <DependentUpon>CharKeywords_Backup.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CharKeywords.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +124,18 @@
       <LastGenOutput>CharKeywords.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="CharKeywords_Backup.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CharKeywords_Backup.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbCharKeyword.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="dbCharKeyword_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>dbCharKeyword.mdf</DependentUpon>
+    </Content>
     <EmbeddedResource Include="frmKeyword.resx">
       <DependentUpon>frmKeyword.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +159,17 @@
     <EmbeddedResource Include="TextInputDialog.resx">
       <DependentUpon>TextInputDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CharKeyword.xsc">
+      <DependentUpon>CharKeyword.xsd</DependentUpon>
+    </None>
+    <None Include="CharKeyword.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CharKeyword.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CharKeyword.xss">
+      <DependentUpon>CharKeyword.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
