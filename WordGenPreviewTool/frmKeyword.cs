@@ -44,27 +44,7 @@ namespace WordGenPreviewTool
       }
 
       rs.Close();
-      string con = @"Data Source=(LocalDB)\v11.0;
-      AttachDbFilename=|DataDirectory|\dbCharKeyword.mdf;
-      Integrated Security=True;
-      Connect Timeout=30";
-
-      string query = "select * from chars";
-      SqlConnection connection = new SqlConnection(con);
-      connection.Open();
-      SqlDataAdapter adapter = new SqlDataAdapter();
-      SqlCommand command = new SqlCommand(query, connection);
       
-      adapter.SelectCommand=command;
-      DataSet data = new DataSet();
-      adapter.Fill(data);
-      MessageBox.Show(data.ToString());
-
-      connection.Close();
-     //ResXResourceWriter rw = new ResXResourceWriter(resxFile);
-     // rw.AddResource("一","一二三");
-     // rw.Generate();
-     // rw.Close();
     }
   }
 }
