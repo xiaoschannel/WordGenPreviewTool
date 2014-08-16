@@ -86,7 +86,6 @@
       this.Margin = new System.Windows.Forms.Padding(4);
       this.Name = "TextInputDialog";
       this.Text = "测试标题";
-      this.Load += new System.EventHandler(this.TextInputDialog_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 

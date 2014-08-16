@@ -28,10 +28,5 @@ namespace WordGenPreviewTool
       else
         return null;
     }
-
-    private void TextInputDialog_Load(object sender, EventArgs e)
-    {
-
-    }
   }
 }

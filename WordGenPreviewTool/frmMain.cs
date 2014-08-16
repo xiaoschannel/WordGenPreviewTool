@@ -55,7 +55,7 @@ namespace WordGenPreviewTool
 
     private void btnCharsRemove_Click(object sender, EventArgs e)
     {
-      Utility.ListView_RemoveSelected(lstChars);
+      zut.ListView_RemoveSelected(lstChars);
     }
 
     private void btnCharsClear_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace WordGenPreviewTool
 
     private void btnUnselectWord_Click(object sender, EventArgs e)
     {
-      Utility.ListView_RemoveSelected(lstSelected);
+      zut.ListView_RemoveSelected(lstSelected);
     }
 
     private void btnClearSelection_Click(object sender, EventArgs e)
@@ -137,7 +137,7 @@ namespace WordGenPreviewTool
           }
         }
         lstGenerated.TileSize = new System.Drawing.Size((int)Math.Round(CreateGraphics().MeasureString(s, lstGenerated.Font).Width) + txtPattern.TextLength * 1 + 4, 28);
-        if (!Utility.ListView_ContainsItemWithText(lstGenerated, s)) lstGenerated.Items.Add(s);
+        if (!zut.ListView_ContainsItemWithText(lstGenerated, s)) lstGenerated.Items.Add(s);
       }
     }
     private void lstGenerated_SelectedIndexChanged(object sender, EventArgs e)

@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 namespace WordGenPreviewTool
 {
-  public static class Utility
+  public static class zut
   {
     /// <summary>
     /// Remove all selected items in given ListView.
@@ -35,6 +35,14 @@ namespace WordGenPreviewTool
         }
       }
       return answer;
+    }
+
+    public static string ListBox_GetSelectedItemText(ListBox v)
+    {
+    if (v.SelectedItem!=null)
+    return v.SelectedItem.ToString();
+
+    return null;
     }
   }
 }

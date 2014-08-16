@@ -47,20 +47,25 @@
       // 
       this.lstKeyWords.FormattingEnabled = true;
       this.lstKeyWords.ItemHeight = 20;
+      this.lstKeyWords.Items.AddRange(new object[] {
+            "读取中……"});
       this.lstKeyWords.Location = new System.Drawing.Point(13, 12);
       this.lstKeyWords.Name = "lstKeyWords";
       this.lstKeyWords.Size = new System.Drawing.Size(159, 384);
       this.lstKeyWords.TabIndex = 1;
+      this.lstKeyWords.SelectedIndexChanged += new System.EventHandler(this.lstKeyWords_SelectedIndexChanged);
       // 
       // lstCharecters
       // 
       this.lstCharecters.Location = new System.Drawing.Point(178, 45);
+      this.lstCharecters.MultiSelect = false;
       this.lstCharecters.Name = "lstCharecters";
       this.lstCharecters.Size = new System.Drawing.Size(433, 141);
       this.lstCharecters.TabIndex = 2;
       this.lstCharecters.TileSize = new System.Drawing.Size(28, 28);
       this.lstCharecters.UseCompatibleStateImageBehavior = false;
       this.lstCharecters.View = System.Windows.Forms.View.Tile;
+      this.lstCharecters.SelectedIndexChanged += new System.EventHandler(this.lstCharecters_SelectedIndexChanged);
       // 
       // lblCharDisplay
       // 
@@ -69,7 +74,6 @@
       this.lblCharDisplay.Name = "lblCharDisplay";
       this.lblCharDisplay.Size = new System.Drawing.Size(165, 121);
       this.lblCharDisplay.TabIndex = 3;
-      this.lblCharDisplay.Text = "轰";
       // 
       // lblCurrentKeyword
       // 
@@ -79,6 +83,7 @@
       this.lblCurrentKeyword.TabIndex = 4;
       this.lblCurrentKeyword.Text = "（选中的关键字）";
       this.lblCurrentKeyword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblCurrentKeyword.UseCompatibleTextRendering = true;
       // 
       // btnUseKeyword
       // 

@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharKeywordDBHandler.cs" />
+    <Compile Include="DBUtility.cs" />
     <Compile Include="frmKeyword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,7 +99,7 @@
     <Compile Include="TextInputDialog.Designer.cs">
       <DependentUpon>TextInputDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utility.cs" />
+    <Compile Include="zut.cs" />
     <Content Include="dbCharKeyword.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -106,6 +107,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>dbCharKeyword.mdf</DependentUpon>
     </Content>
+    <Content Include="resx_code_sample.txt" />
     <EmbeddedResource Include="frmKeyword.resx">
       <DependentUpon>frmKeyword.cs</DependentUpon>
     </EmbeddedResource>
