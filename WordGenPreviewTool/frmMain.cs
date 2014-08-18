@@ -117,6 +117,7 @@ namespace WordGenPreviewTool
 
     private void btnGenerate_Click(object sender, EventArgs e)
     {
+      if(lstChars.Items.Count==0) return;
 
       Random r = new Random();
       lstGenerated.Clear();
