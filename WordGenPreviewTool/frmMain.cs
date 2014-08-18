@@ -55,7 +55,7 @@ namespace WordGenPreviewTool
 
     private void btnCharsRemove_Click(object sender, EventArgs e)
     {
-      zut.ListView_RemoveSelected(lstChars);
+      zut_wf.ListView_RemoveSelected(lstChars);
     }
 
     private void btnCharsClear_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace WordGenPreviewTool
 
     private void btnUnselectWord_Click(object sender, EventArgs e)
     {
-      zut.ListView_RemoveSelected(lstSelected);
+      zut_wf.ListView_RemoveSelected(lstSelected);
     }
 
     private void btnClearSelection_Click(object sender, EventArgs e)
@@ -137,25 +137,35 @@ namespace WordGenPreviewTool
           }
         }
         lstGenerated.TileSize = new System.Drawing.Size((int)Math.Round(CreateGraphics().MeasureString(s, lstGenerated.Font).Width) + txtPattern.TextLength * 1 + 4, 28);
-        if (!zut.ListView_ContainsItemWithText(lstGenerated, s)) lstGenerated.Items.Add(s);
+        if (!zut_wf.ListView_ContainsItemWithText(lstGenerated, s)) lstGenerated.Items.Add(s);
       }
     }
     private void lstGenerated_SelectedIndexChanged(object sender, EventArgs e)
     {
-      if (lstGenerated.SelectedItems.Count != 0) reflectTextFont(lstGenerated.SelectedItems[0].Text);
+      if (lstGenerated.SelectedItems.Count != 0)
+      {
+        if (lstGenerated.SelectedItems.Count == 1)
+          reflectText(lstGenerated.SelectedItems[0].Text);
+        else
+          reflectText("（选中了多项）");
+      }
     }
 
     private void lstSelected_SelectedIndexChanged(object sender, EventArgs e)
     {
-      if (lstSelected.SelectedItems.Count != 0) reflectTextFont(lstSelected.SelectedItems[0].Text);
-
+      if (lstSelected.SelectedItems.Count != 0)
+      {
+        if (lstSelected.SelectedItems.Count == 1)
+          reflectText(lstSelected.SelectedItems[0].Text);
+        else
+          reflectText("（选中了多项）");
+      }
     }
-    private void reflectTextFont(string text)
+    private void reflectText(string text)
     {
       lbl8.Text = text;
       lbl12.Text = text;
       lbl18.Text = text;
-      reflectFont();
     }
     private void reflectFont()
     {
@@ -171,6 +181,11 @@ namespace WordGenPreviewTool
           ((cbxItalic.Checked) ? (System.Drawing.FontStyle.Italic) : (0)) |
           ((cbxUnderline.Checked) ? (System.Drawing.FontStyle.Underline) : (0)) |
           ((cbxBold.Checked) ? (System.Drawing.FontStyle.Bold) : (0)));
+    }
+    private void reflectTextFont(string text)
+    {
+      reflectText(text);
+      reflectFont();
     }
 
     private void cbxItalic_CheckedChanged(object sender, EventArgs e)
@@ -199,7 +214,7 @@ namespace WordGenPreviewTool
     private void btnTypeNewWord_Click(object sender, EventArgs e)
     {
       string val = TextInputDialog.getInput(this, "输入候选词", "请在文本框中输入你想加入的候选词，用空格分开。");
-      if (val==null) return;
+      if (val == null) return;
       string[] s = val.Split(' ');
       foreach (string i in s)
         lstSelected.Items.Add(i);
@@ -207,7 +222,38 @@ namespace WordGenPreviewTool
 
     private void btnCharSets_Click(object sender, EventArgs e)
     {
-      new frmKeyword().Show();
+      new frmKeyword(this).Show();
     }
+
+    public ListView getLstChars()
+    {
+      return lstChars;
+    }
+
+    private void lstChars_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void btnCopyAllChars_Click(object sender, EventArgs e)
+    {
+      zut_wf.Clipboard_SetTextIfNotEmpty(zut_wf.ListView_GenerateStringofItems(lstChars));
+    }
+
+    private void btnCopyAllGenerated_Click(object sender, EventArgs e)
+    {
+      zut_wf.Clipboard_SetTextIfNotEmpty(zut_wf.ListView_GenerateStringofItems(lstGenerated));
+    }
+
+    private void btnCopyAllSelected_Click(object sender, EventArgs e)
+    {
+      zut_wf.Clipboard_SetTextIfNotEmpty(zut_wf.ListView_GenerateStringofItems(lstSelected));
+    }
+
+    private void btnCopyCurrentPreview_Click(object sender, EventArgs e)
+    {
+      zut_wf.Clipboard_SetTextIfNotEmpty(lbl8.Text);
+    }
+
   }
 }

@@ -22,15 +22,28 @@ namespace WordGenPreviewTool
     public static readonly string QUERY_CHARS_ADD = "insert into chars (char) values (@charval)";
     public static readonly string QUERY_CHARS_REMOVE = "delete from chars where char=(@charval)";
     public static readonly string QUERY_KEYWORDS_SELECT_ALL = "select * from keywords";
-    public static readonly string QUERY_KEYWORDS_ADD = "insert into keywords (keyword) values (@charval)";
-    public static readonly string QUERY_KEYWORDS_REMOVE = "delete from keywords where keyword=(@charval)";
+    public static readonly string QUERY_KEYWORDS_ADD = "insert into keywords (keyword) values (@keywordval)";
+    public static readonly string QUERY_KEYWORDS_REMOVE = "delete from keywords where keyword=(@keywordval)";
     public static readonly string QUERY_CHARKEYWORDS_SELECT_ALL = "select * from charkeywords";
     public static readonly string QUERY_CHARKEYWORDS_ADD = "insert into charkeywords (char, keyword) values (@charval, @keywordval)";
     public static readonly string QUERY_CHARKEYWORDS_REMOVE = "delete from charkeywords where char=(@charval) and keyword=(@keywordval)";
 
-    public Dictionary<string, List<string>> charKeywords = new Dictionary<string, List<string>>();
+    public static readonly string QUERY_BEGIN_TRANSACTION = "begin transaction";
+    public static readonly string QUERY_END_TRANSACTION = "commit transaction";
+
+
+    public Dictionary<string, List<string>> KeywordsCharList = new Dictionary<string, List<string>>();
     public List<string> chars = new List<string>();
     public List<string> keywords = new List<string>();
+
+    public static bool isValidChar(string s)
+    {
+    return s.Trim().Length==1;
+    }
+    public static bool isValidKeyword(string s)
+    {
+    return s.Trim().Length>=1&&s.Trim().Length<64;
+    }
 
     /// <summary>
     /// fills 
@@ -41,10 +54,10 @@ namespace WordGenPreviewTool
       foreach (DataRow i in ckw.Rows)
       {
         string k = i[COLUMN_KEYWORD].ToString();
-        if (!charKeywords.ContainsKey(k))
-          charKeywords.Add(k, new List<string>());//create a new entry if this keyword is not seen before.
+        if (!KeywordsCharList.ContainsKey(k))
+          KeywordsCharList.Add(k, new List<string>());//create a new entry if this keyword is not seen before.
 
-        charKeywords[k].Add(i[COLUMN_CHAR].ToString());//add the char we've found that's associated.
+        KeywordsCharList[k].Add(i[COLUMN_CHAR].ToString());//add the char we've found that's associated.
       }
     }
     //public void updateKeywords(string char)
@@ -52,16 +65,15 @@ namespace WordGenPreviewTool
     {
       List<KeyValuePair<string, string>> filtered = new List<KeyValuePair<string, string>>();
       foreach (KeyValuePair<string, string> i in l)
-      {
         if (chars.Contains(i.Key) && keywords.Contains(i.Value)) filtered.Add(i);
-      }
+
 
       helper_2param_non_query(filtered, QUERY_CHARKEYWORDS_ADD, PARAM_CHAR, PARAM_KEYWORD);
 
       foreach (KeyValuePair<string, string> i in filtered)
       {
-        if (!charKeywords.ContainsKey(i.Key)) charKeywords.Add(i.Key, new List<string>());
-        charKeywords[i.Key].Add(i.Value);
+        if (!KeywordsCharList.ContainsKey(i.Value)) KeywordsCharList.Add(i.Value, new List<string>());
+        KeywordsCharList[i.Value].Add(i.Key);
       }
     }
     public void removeCKWPairs(List<KeyValuePair<string, string>> l)
@@ -70,23 +82,23 @@ namespace WordGenPreviewTool
       foreach (KeyValuePair<string, string> i in l)
       {
         if (chars.Contains(i.Key) && keywords.Contains(i.Value) &&
-          charKeywords.ContainsKey(i.Key) && charKeywords[i.Key].Contains(i.Value)) 
-            filtered.Add(i);
+          KeywordsCharList.ContainsKey(i.Value) && KeywordsCharList[i.Value].Contains(i.Key))
+          filtered.Add(i);
       }
 
       helper_2param_non_query(filtered, QUERY_CHARKEYWORDS_REMOVE, PARAM_CHAR, PARAM_KEYWORD);
 
       foreach (KeyValuePair<string, string> i in filtered)
       {
-        charKeywords[i.Key].Remove(i.Value);
-        if (charKeywords[i.Key].Count==0) charKeywords.Remove(i.Key);
+        KeywordsCharList[i.Value].Remove(i.Key);
+        if (KeywordsCharList[i.Value].Count == 0) KeywordsCharList.Remove(i.Value);
       }
     }
 
     public void loadAllKeywords()
     {
       DataTable ckw = helper_queryDB(QUERY_KEYWORDS_SELECT_ALL);
-      Console.WriteLine("Loading "+ckw.Rows.Count+" Keywords");
+      //Console.WriteLine("Loading "+ckw.Rows.Count+" Keywords");
       foreach (DataRow i in ckw.Rows)
       {
         keywords.Add(i[COLUMN_KEYWORD].ToString());
@@ -97,14 +109,14 @@ namespace WordGenPreviewTool
       List<string> filtered = new List<string>();
       foreach (string i in s)
       {
-        if (!keywords.Contains(i) && i.Length <= 64)
-          filtered.Add(i);
+        if (!keywords.Contains(i) && isValidKeyword(i))
+          filtered.Add(i.Trim());
       }
 
       helper_1param_non_query(filtered, QUERY_KEYWORDS_ADD, PARAM_KEYWORD);
 
       foreach (string i in filtered)
-        chars.Add(i);
+        keywords.Add(i);
     }
     public void deleteKeywords(List<string> s)
     {
@@ -115,7 +127,7 @@ namespace WordGenPreviewTool
       helper_1param_non_query(filtered, QUERY_KEYWORDS_REMOVE, PARAM_KEYWORD);
 
       foreach (string i in filtered)
-        chars.Remove(i);
+        keywords.Remove(i);
     }
     public void loadAllChars()
     {
@@ -131,8 +143,8 @@ namespace WordGenPreviewTool
       List<string> filtered = new List<string>();
       foreach (string i in s)
       {
-        if (!chars.Contains(i) && i.Length == 1)
-          filtered.Add(i);
+        if (!chars.Contains(i) && isValidChar(i))
+          filtered.Add(i.Trim());
       }
 
       helper_1param_non_query(filtered, QUERY_CHARS_ADD, PARAM_CHAR);
@@ -187,13 +199,16 @@ namespace WordGenPreviewTool
       using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
       {
         connection.Open();
+        SqlCommand command = new SqlCommand(query, connection);
+        command.Transaction=connection.BeginTransaction();
+        command.CommandType = CommandType.Text;
         foreach (string i in s)
         {
-          SqlCommand command = new SqlCommand(query, connection);
           command.Parameters.AddWithValue(paramName, i);
-          command.CommandType = CommandType.Text;
           command.ExecuteNonQuery();
+          command.Parameters.Clear();
         }
+        command.Transaction.Commit();
       }
     }
     private void helper_2param_non_query(List<KeyValuePair<string, string>> s, string query, string param1Name, string param2Name)
@@ -201,15 +216,20 @@ namespace WordGenPreviewTool
       using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
       {
         connection.Open();
+        SqlCommand command = new SqlCommand(query, connection);
+        command.Transaction = connection.BeginTransaction();
+        command.CommandType = CommandType.Text;
         foreach (KeyValuePair<string, string> i in s)
         {
-          SqlCommand command = new SqlCommand(query, connection);
           command.Parameters.AddWithValue(param1Name, i.Key);
           command.Parameters.AddWithValue(param2Name, i.Value);
-          command.CommandType = CommandType.Text;
           command.ExecuteNonQuery();
+          command.Parameters.Clear();
         }
+        command.Transaction.Commit();
       }
     }
+
+
   }
 }

@@ -22,11 +22,22 @@ namespace WordGenPreviewTool
 
     public static string getInput(IWin32Window parent, string title, string text)
     {
+      return getInputWithPreSetText(parent,title,text,"");
+    }
+
+    public static string getInputWithPreSetText(IWin32Window parent, string title, string text,string preSetText)
+    {
       TextInputDialog dlg = new TextInputDialog(title, text);
+      dlg.txtUserInput.Text=preSetText;
       if (dlg.ShowDialog(parent) == DialogResult.OK)
         return dlg.txtUserInput.Text;
       else
         return null;
+    }
+
+    private void TextInputDialog_Load(object sender, EventArgs e)
+    {
+
     }
   }
 }

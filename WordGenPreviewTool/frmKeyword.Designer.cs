@@ -34,13 +34,14 @@
       this.lblCurrentKeyword = new System.Windows.Forms.Label();
       this.btnUseKeyword = new System.Windows.Forms.Button();
       this.lstSelectedKeywords = new System.Windows.Forms.ListBox();
-      this.btnManageChars = new System.Windows.Forms.Button();
-      this.btnRemoveSelected = new System.Windows.Forms.Button();
+      this.btnUnselectKeywords = new System.Windows.Forms.Button();
       this.btnGoogleIt = new System.Windows.Forms.Button();
       this.btnWikiIt = new System.Windows.Forms.Button();
       this.lblCharKeywords = new System.Windows.Forms.Label();
-      this.btnDone = new System.Windows.Forms.Button();
-      this.btnEditKeywords = new System.Windows.Forms.Button();
+      this.btnApply = new System.Windows.Forms.Button();
+      this.btnEditCharOfKeyword = new System.Windows.Forms.Button();
+      this.btnDeleteSelectedKeywords = new System.Windows.Forms.Button();
+      this.btnNewKeyword = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // lstKeyWords
@@ -49,15 +50,15 @@
       this.lstKeyWords.ItemHeight = 20;
       this.lstKeyWords.Items.AddRange(new object[] {
             "读取中……"});
-      this.lstKeyWords.Location = new System.Drawing.Point(13, 12);
+      this.lstKeyWords.Location = new System.Drawing.Point(13, 4);
       this.lstKeyWords.Name = "lstKeyWords";
-      this.lstKeyWords.Size = new System.Drawing.Size(159, 384);
+      this.lstKeyWords.Size = new System.Drawing.Size(159, 344);
       this.lstKeyWords.TabIndex = 1;
       this.lstKeyWords.SelectedIndexChanged += new System.EventHandler(this.lstKeyWords_SelectedIndexChanged);
       // 
       // lstCharecters
       // 
-      this.lstCharecters.Location = new System.Drawing.Point(178, 45);
+      this.lstCharecters.Location = new System.Drawing.Point(178, 87);
       this.lstCharecters.MultiSelect = false;
       this.lstCharecters.Name = "lstCharecters";
       this.lstCharecters.Size = new System.Drawing.Size(433, 141);
@@ -70,29 +71,31 @@
       // lblCharDisplay
       // 
       this.lblCharDisplay.Font = new System.Drawing.Font("FangSong", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.lblCharDisplay.Location = new System.Drawing.Point(478, 189);
+      this.lblCharDisplay.Location = new System.Drawing.Point(477, 231);
       this.lblCharDisplay.Name = "lblCharDisplay";
       this.lblCharDisplay.Size = new System.Drawing.Size(165, 121);
       this.lblCharDisplay.TabIndex = 3;
+      this.lblCharDisplay.Text = "例";
       // 
       // lblCurrentKeyword
       // 
-      this.lblCurrentKeyword.Location = new System.Drawing.Point(178, 4);
+      this.lblCurrentKeyword.Font = new System.Drawing.Font("FangSong", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.lblCurrentKeyword.Location = new System.Drawing.Point(178, 8);
       this.lblCurrentKeyword.Name = "lblCurrentKeyword";
-      this.lblCurrentKeyword.Size = new System.Drawing.Size(348, 34);
+      this.lblCurrentKeyword.Size = new System.Drawing.Size(311, 72);
       this.lblCurrentKeyword.TabIndex = 4;
-      this.lblCurrentKeyword.Text = "（选中的关键字）";
+      this.lblCurrentKeyword.Text = "（请选择一个关键字）";
       this.lblCurrentKeyword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.lblCurrentKeyword.UseCompatibleTextRendering = true;
       // 
       // btnUseKeyword
       // 
-      this.btnUseKeyword.Location = new System.Drawing.Point(532, 4);
+      this.btnUseKeyword.Location = new System.Drawing.Point(495, 4);
       this.btnUseKeyword.Name = "btnUseKeyword";
-      this.btnUseKeyword.Size = new System.Drawing.Size(79, 34);
+      this.btnUseKeyword.Size = new System.Drawing.Size(116, 36);
       this.btnUseKeyword.TabIndex = 5;
       this.btnUseKeyword.Text = "加入>";
       this.btnUseKeyword.UseVisualStyleBackColor = true;
+      this.btnUseKeyword.Click += new System.EventHandler(this.btnUseKeyword_Click);
       // 
       // lstSelectedKeywords
       // 
@@ -100,83 +103,99 @@
       this.lstSelectedKeywords.ItemHeight = 20;
       this.lstSelectedKeywords.Location = new System.Drawing.Point(617, 4);
       this.lstSelectedKeywords.Name = "lstSelectedKeywords";
+      this.lstSelectedKeywords.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
       this.lstSelectedKeywords.Size = new System.Drawing.Size(159, 344);
       this.lstSelectedKeywords.TabIndex = 6;
       // 
-      // btnManageChars
+      // btnUnselectKeywords
       // 
-      this.btnManageChars.Location = new System.Drawing.Point(13, 403);
-      this.btnManageChars.Name = "btnManageChars";
-      this.btnManageChars.Size = new System.Drawing.Size(159, 33);
-      this.btnManageChars.TabIndex = 7;
-      this.btnManageChars.Text = "管理文字...";
-      this.btnManageChars.UseVisualStyleBackColor = true;
-      // 
-      // btnRemoveSelected
-      // 
-      this.btnRemoveSelected.Location = new System.Drawing.Point(617, 355);
-      this.btnRemoveSelected.Name = "btnRemoveSelected";
-      this.btnRemoveSelected.Size = new System.Drawing.Size(159, 33);
-      this.btnRemoveSelected.TabIndex = 8;
-      this.btnRemoveSelected.Text = "移除所选";
-      this.btnRemoveSelected.UseVisualStyleBackColor = true;
+      this.btnUnselectKeywords.Location = new System.Drawing.Point(617, 351);
+      this.btnUnselectKeywords.Name = "btnUnselectKeywords";
+      this.btnUnselectKeywords.Size = new System.Drawing.Size(159, 33);
+      this.btnUnselectKeywords.TabIndex = 8;
+      this.btnUnselectKeywords.Text = "移除所选";
+      this.btnUnselectKeywords.UseVisualStyleBackColor = true;
+      this.btnUnselectKeywords.Click += new System.EventHandler(this.btnRemoveSelected_Click);
       // 
       // btnGoogleIt
       // 
-      this.btnGoogleIt.Location = new System.Drawing.Point(182, 362);
+      this.btnGoogleIt.Location = new System.Drawing.Point(178, 362);
       this.btnGoogleIt.Name = "btnGoogleIt";
-      this.btnGoogleIt.Size = new System.Drawing.Size(429, 34);
+      this.btnGoogleIt.Size = new System.Drawing.Size(433, 34);
       this.btnGoogleIt.TabIndex = 9;
       this.btnGoogleIt.Text = "谷歌一下这个字";
       this.btnGoogleIt.UseVisualStyleBackColor = true;
       // 
       // btnWikiIt
       // 
-      this.btnWikiIt.Location = new System.Drawing.Point(182, 402);
+      this.btnWikiIt.Location = new System.Drawing.Point(178, 402);
       this.btnWikiIt.Name = "btnWikiIt";
-      this.btnWikiIt.Size = new System.Drawing.Size(429, 34);
+      this.btnWikiIt.Size = new System.Drawing.Size(433, 34);
       this.btnWikiIt.TabIndex = 10;
       this.btnWikiIt.Text = "在维基字典上查这个字";
       this.btnWikiIt.UseVisualStyleBackColor = true;
       // 
       // lblCharKeywords
       // 
-      this.lblCharKeywords.Location = new System.Drawing.Point(178, 200);
+      this.lblCharKeywords.Location = new System.Drawing.Point(178, 231);
       this.lblCharKeywords.Name = "lblCharKeywords";
-      this.lblCharKeywords.Size = new System.Drawing.Size(310, 156);
+      this.lblCharKeywords.Size = new System.Drawing.Size(310, 126);
       this.lblCharKeywords.TabIndex = 11;
       this.lblCharKeywords.Text = "关键字：";
       // 
-      // btnDone
+      // btnApply
       // 
-      this.btnDone.Location = new System.Drawing.Point(617, 394);
-      this.btnDone.Name = "btnDone";
-      this.btnDone.Size = new System.Drawing.Size(159, 42);
-      this.btnDone.TabIndex = 12;
-      this.btnDone.Text = "确定";
-      this.btnDone.UseVisualStyleBackColor = true;
+      this.btnApply.Location = new System.Drawing.Point(617, 402);
+      this.btnApply.Name = "btnApply";
+      this.btnApply.Size = new System.Drawing.Size(159, 34);
+      this.btnApply.TabIndex = 14;
+      this.btnApply.Text = "应用";
+      this.btnApply.UseVisualStyleBackColor = true;
+      this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
       // 
-      // btnEditKeywords
+      // btnEditCharOfKeyword
       // 
-      this.btnEditKeywords.Location = new System.Drawing.Point(498, 314);
-      this.btnEditKeywords.Name = "btnEditKeywords";
-      this.btnEditKeywords.Size = new System.Drawing.Size(113, 42);
-      this.btnEditKeywords.TabIndex = 13;
-      this.btnEditKeywords.Text = "编辑...";
-      this.btnEditKeywords.UseVisualStyleBackColor = true;
+      this.btnEditCharOfKeyword.Location = new System.Drawing.Point(495, 44);
+      this.btnEditCharOfKeyword.Name = "btnEditCharOfKeyword";
+      this.btnEditCharOfKeyword.Size = new System.Drawing.Size(116, 36);
+      this.btnEditCharOfKeyword.TabIndex = 15;
+      this.btnEditCharOfKeyword.Text = "编辑...";
+      this.btnEditCharOfKeyword.UseVisualStyleBackColor = true;
+      this.btnEditCharOfKeyword.Click += new System.EventHandler(this.btnEditCharOfKeyword_Click);
+      // 
+      // btnDeleteSelectedKeywords
+      // 
+      this.btnDeleteSelectedKeywords.Location = new System.Drawing.Point(13, 351);
+      this.btnDeleteSelectedKeywords.Name = "btnDeleteSelectedKeywords";
+      this.btnDeleteSelectedKeywords.Size = new System.Drawing.Size(159, 33);
+      this.btnDeleteSelectedKeywords.TabIndex = 16;
+      this.btnDeleteSelectedKeywords.Text = "移除所选";
+      this.btnDeleteSelectedKeywords.UseVisualStyleBackColor = true;
+      this.btnDeleteSelectedKeywords.Click += new System.EventHandler(this.btnDeleteSelectedKeywords_Click);
+      // 
+      // btnNewKeyword
+      // 
+      this.btnNewKeyword.Location = new System.Drawing.Point(13, 402);
+      this.btnNewKeyword.Name = "btnNewKeyword";
+      this.btnNewKeyword.Size = new System.Drawing.Size(159, 34);
+      this.btnNewKeyword.TabIndex = 17;
+      this.btnNewKeyword.Text = "新关键字...";
+      this.btnNewKeyword.UseVisualStyleBackColor = true;
+      this.btnNewKeyword.Click += new System.EventHandler(this.btnNewKeyword_Click);
       // 
       // frmKeyword
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(786, 444);
-      this.Controls.Add(this.btnEditKeywords);
-      this.Controls.Add(this.btnDone);
+      this.Controls.Add(this.btnNewKeyword);
+      this.Controls.Add(this.btnDeleteSelectedKeywords);
+      this.Controls.Add(this.btnEditCharOfKeyword);
+      this.Controls.Add(this.btnApply);
       this.Controls.Add(this.lblCharKeywords);
       this.Controls.Add(this.btnWikiIt);
       this.Controls.Add(this.btnGoogleIt);
-      this.Controls.Add(this.btnRemoveSelected);
-      this.Controls.Add(this.btnManageChars);
+      this.Controls.Add(this.btnUnselectKeywords);
       this.Controls.Add(this.lstSelectedKeywords);
       this.Controls.Add(this.btnUseKeyword);
       this.Controls.Add(this.lstKeyWords);
@@ -200,12 +219,13 @@
     private System.Windows.Forms.Label lblCurrentKeyword;
     private System.Windows.Forms.Button btnUseKeyword;
     private System.Windows.Forms.ListBox lstSelectedKeywords;
-    private System.Windows.Forms.Button btnManageChars;
-    private System.Windows.Forms.Button btnRemoveSelected;
+    private System.Windows.Forms.Button btnUnselectKeywords;
     private System.Windows.Forms.Button btnGoogleIt;
     private System.Windows.Forms.Button btnWikiIt;
     private System.Windows.Forms.Label lblCharKeywords;
-    private System.Windows.Forms.Button btnDone;
-    private System.Windows.Forms.Button btnEditKeywords;
+    private System.Windows.Forms.Button btnApply;
+    private System.Windows.Forms.Button btnEditCharOfKeyword;
+    private System.Windows.Forms.Button btnDeleteSelectedKeywords;
+    private System.Windows.Forms.Button btnNewKeyword;
   }
 }

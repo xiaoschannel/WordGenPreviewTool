@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WordGenPreviewTool.exe" size="37888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WordGenPreviewTool.exe" size="54784">
       <assemblyIdentity name="WordGenPreviewTool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>jd+a6z70ee+seGXbo1eRBu0it1Ak6ngVYScYFGpp8eY=</dsig:DigestValue>
+        <dsig:DigestValue>l+yte0VG+LA74zv0hJlpItSqYR3zTra6FGnN6xOrU8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -59,7 +59,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>C0N6GzE3vuWLkyoXTIgz4kAzGUSFBi2D14U+r8ca/qc=</dsig:DigestValue>
+      <dsig:DigestValue>7jMQelthJeZg6txA5uuma7wTfg9I2hixz9DIiYzn+iE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="dbCharKeyword_log.ldf" size="802816" writeableType="applicationData">
@@ -68,7 +68,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>flT3myiVE/UY6uwF4PkumvF++xXRfQD3QWiQfIX2lIM=</dsig:DigestValue>
+      <dsig:DigestValue>RuF70wxbD3T7CnTzfU8LPlyMWDX9CnnWl4vKhaHZWdY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="resx_code_sample.txt" size="565">
