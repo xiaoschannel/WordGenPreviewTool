@@ -42,17 +42,44 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WordGenPreviewTool.exe" size="26112">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="WordGenPreviewTool.exe" size="54784">
       <assemblyIdentity name="WordGenPreviewTool" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>p2LnHI7aLoWFbd+u+5BANiTZYsabassktmPfbUoXvw8=</dsig:DigestValue>
+        <dsig:DigestValue>l+yte0VG+LA74zv0hJlpItSqYR3zTra6FGnN6xOrU8w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="dbCharKeyword.mdf" size="3211264" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>7jMQelthJeZg6txA5uuma7wTfg9I2hixz9DIiYzn+iE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dbCharKeyword_log.ldf" size="802816" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>RuF70wxbD3T7CnTzfU8LPlyMWDX9CnnWl4vKhaHZWdY=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="resx_code_sample.txt" size="565">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qsQqgtQizGjzJd/OXNkd2Njf/liXPr3VCJqwbuQ0tyg=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="WordGenPreviewTool.exe.config" size="187">
     <hash>
       <dsig:Transforms>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
       this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.btnAddCharSets = new System.Windows.Forms.Button();
+      this.btnCharSets = new System.Windows.Forms.Button();
       this.btnAddChar = new System.Windows.Forms.Button();
       this.nudNWords = new System.Windows.Forms.NumericUpDown();
       this.label8 = new System.Windows.Forms.Label();
@@ -70,15 +70,21 @@
       this.label2 = new System.Windows.Forms.Label();
       this.lstGenerated = new System.Windows.Forms.ListView();
       this.label1 = new System.Windows.Forms.Label();
+      this.groupBox2 = new System.Windows.Forms.GroupBox();
+      this.btnCopyAllChars = new System.Windows.Forms.Button();
+      this.btnCopyAllGenerated = new System.Windows.Forms.Button();
+      this.btnCopyAllSelected = new System.Windows.Forms.Button();
+      this.btnCopyCurrentPreview = new System.Windows.Forms.Button();
       this.groupBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudNWords)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudNChars)).BeginInit();
       this.groupBox3.SuspendLayout();
+      this.groupBox2.SuspendLayout();
       this.SuspendLayout();
       // 
       // groupBox1
       // 
-      this.groupBox1.Controls.Add(this.btnAddCharSets);
+      this.groupBox1.Controls.Add(this.btnCharSets);
       this.groupBox1.Controls.Add(this.btnAddChar);
       this.groupBox1.Controls.Add(this.nudNWords);
       this.groupBox1.Controls.Add(this.label8);
@@ -105,14 +111,15 @@
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "设定";
       // 
-      // btnAddCharSets
+      // btnCharSets
       // 
-      this.btnAddCharSets.Location = new System.Drawing.Point(14, 89);
-      this.btnAddCharSets.Name = "btnAddCharSets";
-      this.btnAddCharSets.Size = new System.Drawing.Size(267, 28);
-      this.btnAddCharSets.TabIndex = 20;
-      this.btnAddCharSets.Text = "加入预设字组...";
-      this.btnAddCharSets.UseVisualStyleBackColor = true;
+      this.btnCharSets.Location = new System.Drawing.Point(14, 89);
+      this.btnCharSets.Name = "btnCharSets";
+      this.btnCharSets.Size = new System.Drawing.Size(267, 28);
+      this.btnCharSets.TabIndex = 20;
+      this.btnCharSets.Text = "字组管理...";
+      this.btnCharSets.UseVisualStyleBackColor = true;
+      this.btnCharSets.Click += new System.EventHandler(this.btnCharSets_Click);
       // 
       // btnAddChar
       // 
@@ -267,6 +274,7 @@
       this.lstChars.TileSize = new System.Drawing.Size(36, 36);
       this.lstChars.UseCompatibleStateImageBehavior = false;
       this.lstChars.View = System.Windows.Forms.View.Tile;
+      this.lstChars.SelectedIndexChanged += new System.EventHandler(this.lstChars_SelectedIndexChanged);
       // 
       // label4
       // 
@@ -299,6 +307,7 @@
       // 
       // groupBox3
       // 
+      this.groupBox3.Controls.Add(this.groupBox2);
       this.groupBox3.Controls.Add(this.btnTypeNewWord);
       this.groupBox3.Controls.Add(this.cbxBold);
       this.groupBox3.Controls.Add(this.label10);
@@ -527,6 +536,59 @@
       this.label1.TabIndex = 8;
       this.label1.Text = "备选词：";
       // 
+      // groupBox2
+      // 
+      this.groupBox2.Controls.Add(this.btnCopyCurrentPreview);
+      this.groupBox2.Controls.Add(this.btnCopyAllSelected);
+      this.groupBox2.Controls.Add(this.btnCopyAllGenerated);
+      this.groupBox2.Controls.Add(this.btnCopyAllChars);
+      this.groupBox2.Location = new System.Drawing.Point(368, 386);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new System.Drawing.Size(275, 100);
+      this.groupBox2.TabIndex = 28;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "复制到剪贴板";
+      // 
+      // btnCopyAllChars
+      // 
+      this.btnCopyAllChars.Location = new System.Drawing.Point(9, 29);
+      this.btnCopyAllChars.Name = "btnCopyAllChars";
+      this.btnCopyAllChars.Size = new System.Drawing.Size(60, 60);
+      this.btnCopyAllChars.TabIndex = 0;
+      this.btnCopyAllChars.Text = "所有汉字";
+      this.btnCopyAllChars.UseVisualStyleBackColor = true;
+      this.btnCopyAllChars.Click += new System.EventHandler(this.btnCopyAllChars_Click);
+      // 
+      // btnCopyAllGenerated
+      // 
+      this.btnCopyAllGenerated.Location = new System.Drawing.Point(75, 29);
+      this.btnCopyAllGenerated.Name = "btnCopyAllGenerated";
+      this.btnCopyAllGenerated.Size = new System.Drawing.Size(60, 60);
+      this.btnCopyAllGenerated.TabIndex = 1;
+      this.btnCopyAllGenerated.Text = "所有备选";
+      this.btnCopyAllGenerated.UseVisualStyleBackColor = true;
+      this.btnCopyAllGenerated.Click += new System.EventHandler(this.btnCopyAllGenerated_Click);
+      // 
+      // btnCopyAllSelected
+      // 
+      this.btnCopyAllSelected.Location = new System.Drawing.Point(141, 29);
+      this.btnCopyAllSelected.Name = "btnCopyAllSelected";
+      this.btnCopyAllSelected.Size = new System.Drawing.Size(60, 60);
+      this.btnCopyAllSelected.TabIndex = 2;
+      this.btnCopyAllSelected.Text = "所有候补";
+      this.btnCopyAllSelected.UseVisualStyleBackColor = true;
+      this.btnCopyAllSelected.Click += new System.EventHandler(this.btnCopyAllSelected_Click);
+      // 
+      // btnCopyCurrentPreview
+      // 
+      this.btnCopyCurrentPreview.Location = new System.Drawing.Point(207, 29);
+      this.btnCopyCurrentPreview.Name = "btnCopyCurrentPreview";
+      this.btnCopyCurrentPreview.Size = new System.Drawing.Size(60, 60);
+      this.btnCopyCurrentPreview.TabIndex = 3;
+      this.btnCopyCurrentPreview.Text = "当前预览";
+      this.btnCopyCurrentPreview.UseVisualStyleBackColor = true;
+      this.btnCopyCurrentPreview.Click += new System.EventHandler(this.btnCopyCurrentPreview_Click);
+      // 
       // frmMain
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 20F);
@@ -546,6 +608,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.nudNChars)).EndInit();
       this.groupBox3.ResumeLayout(false);
       this.groupBox3.PerformLayout();
+      this.groupBox2.ResumeLayout(false);
       this.ResumeLayout(false);
 
         }
@@ -592,8 +655,13 @@
         private System.Windows.Forms.CheckBox cbxUnderline;
         private System.Windows.Forms.CheckBox cbxItalic;
         private System.Windows.Forms.CheckBox cbxBold;
-        private System.Windows.Forms.Button btnAddCharSets;
+        private System.Windows.Forms.Button btnCharSets;
         private System.Windows.Forms.Button btnTypeNewWord;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnCopyCurrentPreview;
+        private System.Windows.Forms.Button btnCopyAllSelected;
+        private System.Windows.Forms.Button btnCopyAllGenerated;
+        private System.Windows.Forms.Button btnCopyAllChars;
 
 
     }
